@@ -61,11 +61,21 @@ pre-training checkpoints whose behaviour predicts that final-checkpoint result.
   `uv run test` = pytest. Both must pass.
 - Tests mirror `src/` one-to-one under `tests/`.
 
+## Commits
+
+- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org):
+  `<type>(<optional scope>)!?: <description>`. Allowed types: `build`, `chore`, `ci`, `docs`, `feat`,
+  `fix`, `perf`, `refactor`, `revert`, `style`, `test`.
+- CI checks every commit in a pull request (`.github/workflows/ci.yml`). Enable the local hook to
+  catch problems before pushing: `git config core.hooksPath .githooks`.
+
 ## Merging
 
-- Do not merge a pull request unless `uv run validate` and `uv run test` pass.
-- CI runs both on every pull request and on pushes to `main` (`.github/workflows/ci.yml`).
-- Enable branch protection on `main` to require the CI check before merging (a one-time repo setting
+- Do not merge a pull request unless `uv run validate` and `uv run test` pass, and all commits are
+  Conventional Commits.
+- CI runs both gates on every pull request and on pushes to `main`, and checks commit messages on
+  pull requests (`.github/workflows/ci.yml`).
+- Enable branch protection on `main` to require the CI checks before merging (a one-time repo setting
   in the host UI; this package runs no git or host-admin actions itself).
 
 ## Comments and style

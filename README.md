@@ -181,6 +181,14 @@ CI runs both on every pull request and on pushes to `main`
 ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)). Do not merge unless both pass; enable
 branch protection on `main` to require the CI check.
 
+Commits follow [Conventional Commits](https://www.conventionalcommits.org)
+(`<type>(<scope>)!?: <description>`), checked in CI. Enable the local hook to catch issues before
+pushing:
+
+```bash
+git config core.hooksPath .githooks
+```
+
 ## License
 
 Apache-2.0. See [`LICENSE`](LICENSE). Eval datasets must be Apache-2.0 and must not infringe

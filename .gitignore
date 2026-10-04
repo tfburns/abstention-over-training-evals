@@ -218,3 +218,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# abstention-over-training-evals
+.import_linter_cache/
+outputs/

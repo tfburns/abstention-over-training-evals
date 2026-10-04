@@ -1,0 +1,4 @@
+#!/bin/sh
+# Enforce Conventional Commits locally. Enable once with:
+#   git config core.hooksPath .githooks
+exec uv run check-commit-message --from-file "$1"

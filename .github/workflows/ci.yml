@@ -24,3 +24,30 @@ jobs:
 
       - name: Test
         run: uv run test
+
+  commits:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: uv sync --no-dev
+
+      - name: Check commit messages (Conventional Commits)
+        shell: bash
+        run: |
+          fail=0
+          while IFS= read -r subject; do
+            if ! uv run check-commit-message --subject "$subject"; then
+              fail=1
+            fi
+          done < <(git log --format=%s "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}")
+          exit $fail

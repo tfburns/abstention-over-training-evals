@@ -21,6 +21,8 @@ eval = ["eval-framework[openai]>=0.14.2"]
 # `uv run validate` and `uv run test` resolve to these console scripts.
 validate = "abstention_over_training_evals._dev:validate"
 test = "abstention_over_training_evals._dev:test"
+# Conventional Commits check, used by the commit-msg hook and CI.
+check-commit-message = "abstention_over_training_evals._commit_lint:main"
 
 [dependency-groups]
 dev = [
