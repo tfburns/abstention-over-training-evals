@@ -79,8 +79,10 @@ OLMO3_32B_CHECKPOINTS: tuple[OlmoCheckpoint, ...] = (
         note="Post-training stage 1: SFT.",
     ),
     OlmoCheckpoint(
-        model_id="allenai/Olmo-3-32B",
+        # The model card's "Olmo-3-32B" label points at this repo. `allenai/Olmo-3-32B` is not a
+        # Hub repository.
+        model_id="allenai/Olmo-3-1125-32B",
         stage=TrainingStage.BASE,
-        note="Pre-trained base model.",
+        note="Pre-trained base model (Hub repo Olmo-3-1125-32B).",
     ),
 )

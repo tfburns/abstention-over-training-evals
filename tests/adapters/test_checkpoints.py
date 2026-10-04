@@ -19,6 +19,16 @@ def test_catalog_covers_each_stage_once():
     assert stages == set(TrainingStage)
 
 
+def test_catalog_model_ids_match_hub_repos():
+    # Checked against the Hub: `allenai/Olmo-3-32B` 404s; the base weights are Olmo-3-1125-32B.
+    assert [checkpoint.model_id for checkpoint in OLMO3_32B_CHECKPOINTS] == [
+        "allenai/Olmo-3-32B-Think",
+        "allenai/Olmo-3-32B-Think-DPO",
+        "allenai/Olmo-3-32B-Think-SFT",
+        "allenai/Olmo-3-1125-32B",
+    ]
+
+
 def test_at_revision_pins_an_intermediate_checkpoint():
     intermediate = FINAL_CHECKPOINT.at_revision("step-10000", note="intermediate RLVR checkpoint")
     assert intermediate.revision == "step-10000"
