@@ -1,0 +1,125 @@
+[project]
+name = "abstention-over-training-evals"
+version = "0.1.0"
+description = "Single-turn safety-elicitation evaluations for Olmo 3 32B checkpoints, built as eval-framework task plugins."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { file = "LICENSE" }
+authors = [{ name = "abstention-over-training-evals contributors" }]
+dependencies = [
+    "pydantic>=2.9,<3",
+    "loguru>=0.7,<0.8",
+]
+
+[project.optional-dependencies]
+# The eval-framework integration. `openai` pulls the OpenAI-compatible client used
+# to talk to a local `vllm serve` endpoint. Inference itself is out of process, so
+# vllm/torch are deliberately not dependencies here.
+eval = ["eval-framework[openai]>=0.14.2"]
+
+[project.scripts]
+# `uv run validate` and `uv run test` resolve to these console scripts.
+validate = "abstention_over_training_evals._dev:validate"
+test = "abstention_over_training_evals._dev:test"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11,<2",
+    "ruff>=0.6",
+    "pytest>=8,<9",
+    "import-linter>=2.1,<3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/abstention_over_training_evals"]
+
+[tool.uv]
+# `uv run validate` / `uv run test` map to the scripts below.
+package = true
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "D",   # pydocstyle
+    "C90", # mccabe complexity
+]
+ignore = [
+    "D100", # missing docstring in public module
+    "D101", # missing docstring in public class
+    "D102", # missing docstring in public method
+    "D103", # missing docstring in public function
+    "D104", # missing docstring in public package
+    "D105", # missing docstring in magic method
+    "D106", # missing docstring in public nested class
+    "D107", # missing docstring in __init__
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+python_version = "3.12"
+strict = true
+# Strict typing targets the library. Tests are covered by ruff and pytest.
+files = ["src"]
+
+[[tool.mypy.overrides]]
+# eval-framework is an optional extra; when it is absent its types cannot be resolved. Scope the
+# leniency to the framework edge so the rest of `src` stays strictly typed.
+module = ["eval_framework.*", "template_formatting.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.importlinter]
+root_package = "abstention_over_training_evals"
+# Required because the domain contract forbids external packages (eval_framework, openai, ...).
+include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Domain is IO- and framework-agnostic"
+type = "forbidden"
+source_modules = ["abstention_over_training_evals.domain"]
+forbidden_modules = [
+    "abstention_over_training_evals.adapters",
+    "abstention_over_training_evals.plugins",
+    "eval_framework",
+    "template_formatting",
+    "openai",
+    "vllm",
+    "torch",
+    "transformers",
+    "datasets",
+    "huggingface_hub",
+    "httpx",
+]
+
+[[tool.importlinter.contracts]]
+name = "Layering: plugins -> adapters -> domain"
+type = "layers"
+layers = [
+    "abstention_over_training_evals.plugins",
+    "abstention_over_training_evals.adapters",
+    "abstention_over_training_evals.domain",
+]
