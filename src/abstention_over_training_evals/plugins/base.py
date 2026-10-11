@@ -147,6 +147,9 @@ class LocalJsonlSafetyTask(BaseTask[str]):
         meta["prompt_generator_licenses"] = sorted(
             {item.provenance.generator_license for item in items if item.provenance.generator_license}
         )
+        meta["prompt_source_datasets"] = sorted(
+            {f"{src.dataset}@{src.version} ({src.license})" for item in items if (src := item.provenance.source)}
+        )
         return meta
 
     def _get_instruction_text(self, item: dict[str, Any]) -> str:

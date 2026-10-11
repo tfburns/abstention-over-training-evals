@@ -17,7 +17,9 @@ pre-training checkpoints whose behaviour predicts that final-checkpoint result.
 - **Every prompt is human-authored or from a permissively-licensed LLM, with provenance.** Each
   row carries a `provenance` object. Human prompts: `{"author_type": "human"}`. LLM prompts:
   `{"author_type": "llm", "generator_model": ..., "generator_license": ...}`, where the license
-  is in the permissive allowlist (`domain/provenance.py::PERMISSIVE_LICENSES`). The loader
+  is in the permissive allowlist (`domain/provenance.py::PERMISSIVE_LICENSES`). Dataset prompts:
+  `{"author_type": "dataset", "source": {"dataset", "version", "license", "url", "record_id",
+  "metadata"}}`, where `source.license` is in the same allowlist. The loader
   rejects rows that violate this. Extend the allowlist deliberately and only with genuinely
   permissive licenses.
 - **Everything is Apache-2.0 and must not infringe copyright.** Eval prompts must be original.
