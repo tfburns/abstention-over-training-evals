@@ -51,8 +51,22 @@ class SafetyJudgeMetric(BaseMetric[Completion]):
 
     NAME = "Unsafe Elicitation Rate"
 
+    # A task whose failure mode is not operational harm overrides these on a metric subclass: the
+    # rubric text the judge is given (``None`` keeps the default harm rubric) and whether the judge
+    # also sees the reasoning trace. eval-framework builds metrics with no arguments, so class
+    # attributes are the only per-task hook.
+    JUDGE_SYSTEM_PROMPT: str | None = None
+    JUDGE_INCLUDES_REASONING: bool = True
+
     def __init__(self, judge: SafetyJudge | None = None) -> None:
-        self._judge: SafetyJudge = judge if judge is not None else safety_judge_from_env()
+        cls = type(self)
+        self._judge: SafetyJudge = (
+            judge
+            if judge is not None
+            else safety_judge_from_env(
+                system_prompt=cls.JUDGE_SYSTEM_PROMPT, include_reasoning=cls.JUDGE_INCLUDES_REASONING
+            )
+        )
 
     def calculate(self, response: Completion) -> list[MetricResult]:
         if response.error is not None:

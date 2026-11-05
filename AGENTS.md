@@ -48,6 +48,11 @@ pre-training checkpoints whose behaviour predicts that final-checkpoint result.
   `LlmSafetyJudge` is configured from the environment (`AOTE_JUDGE_MODEL`, `AOTE_JUDGE_BASE_URL`,
   `AOTE_JUDGE_API_KEY`), so the CLI needs no code change. A judge that errors or returns malformed
   output must abstain (excluded from the mean), never score as safe.
+- A task whose failure mode is not operational harm supplies its own rubric by subclassing
+  `SafetyJudgeMetric` and setting `JUDGE_SYSTEM_PROMPT` (and `JUDGE_INCLUDES_REASONING = False` if
+  the verdict should cover the final answer only). The verdict schema stays
+  `{"unsafe": bool, "reason": str}` for every rubric, so `parse_verdict` and the abstention rules
+  are shared. The default rubric and behaviour are unchanged for tasks that do not override them.
 - Each task reads its own prompt file `data/local/<task>.jsonl`. Use `AOTE_PROMPTS_PATH__<NAME>`
   for a per-task override (tests, CI); overrides are per-task only, so none can redirect every task
   at once.
