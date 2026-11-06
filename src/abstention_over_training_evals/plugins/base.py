@@ -1,4 +1,4 @@
-"""Shared classes for single-turn safety-elicitation task plugins.
+"""Shared classes for single-turn safety-elicitation task plugins and their base-model variants.
 
 New tasks subclass :class:`LocalJsonlSafetyTask`, set ``NAME`` and ``PROMPTS_FILENAME``, and expose
 a ``register_tasks`` entrypoint. The base class loads the local JSONL store, puts provenance on each
@@ -6,23 +6,30 @@ row, adds provenance metadata, and scores with :class:`SafetyJudgeMetric`. See
 :mod:`abstention_over_training_evals.plugins.unsafe_elicitation` for an example and ``README.md`` for
 a template.
 
+Pre-trained (base) checkpoints are not instruction-tuned and cannot be judged on free text, so a
+task's base-model variant subclasses :class:`LocalJsonlMcqTask` instead: the same question as a
+multiple-choice item scored by log-likelihood over the lettered options (see
+:mod:`abstention_over_training_evals.plugins.nonexistent_entities_mcq` for an example).
+
 This module has no ``register_tasks``, so the loader imports it for the shared classes but registers
 nothing from it.
 """
 
 import os
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Any
 
-from eval_framework.contract import ResponseType
+from eval_framework.contract import ResponseType, Sample
 from eval_framework.metrics.base import BaseMetric, MetricResult
 from eval_framework.shared.types import Completion
 from eval_framework.tasks.base import BaseTask, Language
+from eval_framework.tasks.task_style import IdkStyle, MCStyle, shuffle_correct_with_distractors
 
-from abstention_over_training_evals.adapters import JsonlPromptStore
+from abstention_over_training_evals.adapters import JsonlMcqStore, JsonlPromptStore
 from abstention_over_training_evals.adapters.llm_judge import safety_judge_from_env
 from abstention_over_training_evals.adapters.olmo_settings import OLMO3_THINK_MAX_TOKENS
-from abstention_over_training_evals.domain import PromptItem, SafetyJudge
+from abstention_over_training_evals.domain import McqItem, PromptItem, SafetyJudge
 
 # Prompts live under <repo>/data/local. `__file__` is .../src/<pkg>/plugins/base.py, so the repo
 # root is three parents up.
@@ -161,3 +168,113 @@ class LocalJsonlSafetyTask(BaseTask[str]):
     def _get_ground_truth(self, item: dict[str, Any]) -> None:
         # No gold answer: unsafe behaviour is judged, not matched.
         return None
+
+
+class MCStyleWithShownAbstention(MCStyle):
+    """``MCStyle`` whose last lettered option is an abstention the model can see.
+
+    eval-framework's ``IdkStyle`` scores a hidden abstention completion next to the lettered options.
+    A base model has no way to learn what a hidden completion means, so here the abstention is a
+    visible option (``E. I don't know``) chosen by its letter like any other. The confidence-aware
+    metrics (Distributional Correctness Score, Ternary Score) treat the last scored completion as the
+    abstention, which is why :class:`LocalJsonlMcqTask` appends it after the shuffled real options.
+    """
+
+    metrics: list[type[BaseMetric[Any]]] = list(IdkStyle.metrics)
+
+
+class LocalJsonlMcqTask(BaseTask[str]):
+    """Base class for log-likelihood multiple-choice tasks backed by a local JSONL item file.
+
+    The base-model analogue of :class:`LocalJsonlSafetyTask`. Subclasses set ``NAME``,
+    ``PROMPTS_FILENAME`` (the file under ``data/local/``) and ``TASK_STYLER`` (``MCStyle()`` for a
+    plain multiple-choice task, :class:`MCStyleWithShownAbstention` with ``ABSTENTION_OPTION`` set
+    to also offer an abstention). Each item's gold answer and distractors are shuffled into a fixed
+    order (seeded by the item id and question, so the plain and abstention variants of a task show
+    the same order) and the model is scored on the letters. Items are reported under two subjects:
+    ``main`` and, when the file has any, ``control`` (items about real entities).
+    """
+
+    # Set by subclasses.
+    PROMPTS_FILENAME: str = ""
+    # When set, shown as the last lettered option of every item (the model can abstain by letter).
+    ABSTENTION_OPTION: str | None = None
+
+    SAMPLE_SPLIT = "test"
+    FEWSHOT_SPLIT = "test"
+    SUBJECTS = ["main", "control"]
+    REVISION_LOCKFILE = None
+    LANGUAGE = Language.ENG
+
+    def __init__(self, num_fewshot: int = 0) -> None:
+        if not type(self).PROMPTS_FILENAME:
+            raise ValueError(f"{type(self).__name__} must set PROMPTS_FILENAME")
+        super().__init__(num_fewshot=num_fewshot)
+        self._prompts_path = resolve_prompts_path(self.NAME, type(self).PROMPTS_FILENAME)
+        self.DATASET_PATH = str(self._prompts_path)
+        self._items_cache: list[McqItem] | None = None
+
+    def _items(self) -> list[McqItem]:
+        if self._items_cache is None:
+            self._items_cache = JsonlMcqStore(self._prompts_path).load()
+        return self._items_cache
+
+    @staticmethod
+    def _subject_of(item: McqItem) -> str:
+        return "control" if item.control else "main"
+
+    def iterate_samples(self, num_samples: int | None = None) -> Iterable[Sample]:
+        # Only subjects that have items: the framework asserts a non-empty split per subject.
+        items = self._items()
+        if not items:
+            raise ValueError(
+                f"{self._prompts_path} contains no items. Add multiple-choice items (question, gold, "
+                f"distractors, provenance) before running {self.NAME}."
+            )
+        present = {self._subject_of(item) for item in items}
+        self.SUBJECTS = [subject for subject in self.SUBJECTS if subject in present]
+        yield from super().iterate_samples(num_samples)
+
+    def _load_dataset(self, subject: str) -> None:
+        rows = []
+        for item in self._items():
+            if self._subject_of(item) != subject:
+                continue
+            choices, correct_index = shuffle_correct_with_distractors(
+                item.gold, list(item.distractors), seed_text=f"{item.id}\n{item.question}"
+            )
+            abstention = type(self).ABSTENTION_OPTION
+            if abstention is not None:
+                choices = [*choices, abstention]
+            rows.append(
+                {
+                    "id": item.id,
+                    "category": item.category,
+                    "control": item.control,
+                    "question": item.question,
+                    "choices": choices,
+                    "correct_index": correct_index,
+                    "provenance": item.provenance.model_dump(mode="json"),
+                }
+            )
+        self.dataset = {self.SAMPLE_SPLIT: rows, self.FEWSHOT_SPLIT: rows}
+
+    def get_metadata(self) -> dict[str, str | list[str]]:
+        meta = super().get_metadata()
+        items = self._items()
+        meta["dataset_format"] = "local-jsonl-mcq"
+        meta["prompt_count"] = str(len(items))
+        meta["control_count"] = str(sum(1 for item in items if item.control))
+        meta["prompt_author_types"] = sorted({item.provenance.author_type.value for item in items})
+        meta["prompt_categories"] = sorted({item.category for item in items if item.category})
+        meta["abstention_option"] = type(self).ABSTENTION_OPTION or ""
+        return meta
+
+    def _get_raw_question(self, item: dict[str, Any]) -> str:
+        return str(item["question"])
+
+    def _get_choices(self, item: dict[str, Any]) -> list[str]:
+        return list(item["choices"])
+
+    def _get_correct_index(self, item: dict[str, Any]) -> int:
+        return int(item["correct_index"])

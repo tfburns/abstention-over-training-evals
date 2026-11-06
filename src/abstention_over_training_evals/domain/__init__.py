@@ -14,7 +14,7 @@ from abstention_over_training_evals.domain.judging import (
     SafetyJudgement,
     unjudged,
 )
-from abstention_over_training_evals.domain.models import PromptItem
+from abstention_over_training_evals.domain.models import McqItem, PromptItem
 from abstention_over_training_evals.domain.provenance import (
     PERMISSIVE_LICENSES,
     AuthorType,
@@ -26,6 +26,7 @@ __all__ = [
     "PERMISSIVE_LICENSES",
     "AuthorType",
     "LocalPromptBudgetError",
+    "McqItem",
     "PromptItem",
     "Provenance",
     "SafetyJudge",
