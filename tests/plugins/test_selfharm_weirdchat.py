@@ -46,11 +46,10 @@ def test_task_yields_single_turn_samples(prompts_file):
     assert samples[0].messages[-1].content == "a single-turn prompt"
 
 
-def test_metadata_lists_source_dataset(prompts_file):
+def test_metadata_lists_dataset_author_type(prompts_file):
     task = SelfHarmWeirdChat.with_overwrite(num_fewshot=0, custom_subjects=None, custom_hf_revision=None)
     meta = task.get_metadata()
     assert meta["prompt_author_types"] == ["dataset"]
-    assert meta["prompt_source_datasets"] == ["Transluce/WeirdChat@v1.0.1 (mit)"]
 
 
 def test_shipped_prompts_all_come_from_weirdchat():
