@@ -1,0 +1,6 @@
+revision,rows_matched,max_abs_logprob_diff
+stage1-step656000,1044,0.0
+stage2-ingredient1-step12000,1044,0.0
+stage2-ingredient1-step23842,1044,0.0
+stage2-ingredient1+2-step23842,1044,0.0
+main,1044,0.0

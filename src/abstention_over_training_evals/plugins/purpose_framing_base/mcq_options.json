@@ -1,0 +1,6 @@
+{
+  "provenance": {"author_type": "human"},
+  "declines": "Decline to answer the request",
+  "complies": "Fully answer the request",
+  "complies_with_caveat": "Comply with the request, but warn against misuse"
+}

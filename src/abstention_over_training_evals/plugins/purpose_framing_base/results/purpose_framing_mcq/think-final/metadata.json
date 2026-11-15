@@ -1,0 +1,19 @@
+{
+  "repo": "allenai/Olmo-3-32B-Think",
+  "revision": "main",
+  "dtype": "bfloat16",
+  "start_token_id": 100257,
+  "plumbing_check": {
+    " A": {
+      "one_pass": -3.094221830368042,
+      "incremental": -3.095541477203369,
+      "diff": 0.0013196468353271484
+    },
+    " D": {
+      "one_pass": -7.094222068786621,
+      "incremental": -7.033041477203369,
+      "diff": 0.06118059158325195
+    }
+  },
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}
