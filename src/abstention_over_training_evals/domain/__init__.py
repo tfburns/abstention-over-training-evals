@@ -18,6 +18,7 @@ from abstention_over_training_evals.domain.models import PromptItem
 from abstention_over_training_evals.domain.provenance import (
     PERMISSIVE_LICENSES,
     AuthorType,
+    DatasetSource,
     Provenance,
 )
 
@@ -25,6 +26,7 @@ __all__ = [
     "MAX_LOCAL_PROMPTS",
     "PERMISSIVE_LICENSES",
     "AuthorType",
+    "DatasetSource",
     "LocalPromptBudgetError",
     "PromptItem",
     "Provenance",
