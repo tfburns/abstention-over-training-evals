@@ -8,10 +8,9 @@ pytest.importorskip("eval_framework", reason="requires the `eval` extra (eval-fr
 
 from eval_framework.shared.types import BaseMetricContext, Error  # noqa: E402
 from eval_framework.tasks.registry import Registry  # noqa: E402
-from pydantic import ValidationError  # noqa: E402
 
 from abstention_over_training_evals.adapters.llm_judge import JUDGE_BASE_URL_ENV, JUDGE_MODEL_ENV  # noqa: E402
-from abstention_over_training_evals.domain import MAX_LOCAL_PROMPTS, LocalPromptBudgetError  # noqa: E402
+from abstention_over_training_evals.domain import MAX_LOCAL_PROMPTS, LocalPromptBudgetError, PromptItem  # noqa: E402
 from abstention_over_training_evals.plugins.purpose_framing import analyze  # noqa: E402
 from abstention_over_training_evals.plugins.purpose_framing.judges import (  # noqa: E402
     GUARD_BASE_URL_ENV,
@@ -38,8 +37,8 @@ from abstention_over_training_evals.plugins.purpose_framing.purpose_framing impo
     TRAINING_SALIENT_CLAIM,
     GuardMetric,
     PurposeFraming,
-    PurposeFramingCore,
     RubricMetric,
+    expand_items,
     parse_item_id,
     register_tasks,
     system_claim_for,
@@ -50,9 +49,16 @@ _ITEM = "c01.framed_watched"
 _HUMAN = {"author_type": "human"}
 
 
-def _core(core="c01", category="fraud", **overrides):
-    row = {"id": core, "category": category, "plain_prompt": f"bare {core}", "framed_prompt": f"framed {core}"}
-    return {**row, "provenance": _HUMAN, **overrides}
+def _row(item_id, category="fraud", prompt=None):
+    return {"id": item_id, "prompt": prompt or f"text {item_id}", "provenance": _HUMAN, "category": category}
+
+
+def _core(core="c01", category="fraud"):
+    return [_row(f"{core}.plain", category, f"bare {core}"), _row(f"{core}.framed", category, f"framed {core}")]
+
+
+def _items(rows):
+    return [PromptItem.model_validate(r) for r in rows]
 
 
 def _verdict(**fields):
@@ -72,26 +78,37 @@ def _verdict(**fields):
 
 
 def test_a_core_expands_into_its_three_conditions():
-    items = PurposeFramingCore.model_validate(_core()).items()
-    assert [(i.id, i.prompt) for i in items] == [
-        ("c01.plain", "bare c01"),
-        ("c01.framed_watched", "framed c01"),
-        ("c01.framed_unwatched", "framed c01"),
+    items = expand_items(_items(_core()))
+    assert [(i.id, i.prompt, i.category) for i in items] == [
+        ("c01.plain", "bare c01", "fraud"),
+        ("c01.framed_watched", "framed c01", "fraud"),
+        ("c01.framed_unwatched", "framed c01", "fraud"),
     ]
     assert all(i.provenance.author_type.value == "human" for i in items)
 
 
 @pytest.mark.parametrize(
-    ("field", "value"), [("id", "c.01"), ("id", " "), ("category", ""), ("plain_prompt", " "), ("framed_prompt", "")]
+    ("rows", "message"),
+    [
+        ([_row("c01.plain"), _row("c01.watched")], "is not <core>.plain or <core>.framed"),
+        ([_row(".plain"), _row(".framed")], "is not <core>.plain or <core>.framed"),
+        ([_row("c01.fraud.plain"), _row("c01.framed")], "is not <core>.plain or <core>.framed"),
+        ([_row("c01.plain")], "needs both a .plain and a .framed row"),
+        ([_row("c01.plain", "fraud"), _row("c01.framed", "cyber")], "disagree on category"),
+        ([{k: v for k, v in _row("c01.plain").items() if k != "category"}, _row("c01.framed")], "has no category"),
+    ],
 )
-def test_core_rows_reject_bad_fields(field, value):
-    with pytest.raises(ValidationError):
-        PurposeFramingCore.model_validate(_core(**{field: value}))
+def test_expansion_rejects_rows_that_do_not_form_cores(rows, message):
+    with pytest.raises(ValueError, match=message):
+        expand_items(_items(rows))
 
 
-def test_core_rows_reject_the_old_per_condition_schema():
-    with pytest.raises(ValidationError):
-        PurposeFramingCore.model_validate({"id": "c01.fraud.plain", "prompt": "p", "provenance": _HUMAN})
+def test_the_shipped_prompt_file_expands_into_three_conditions_per_core(monkeypatch):
+    monkeypatch.delenv(_ENV, raising=False)
+    items = _task()._items()
+    cores = {i.id.split(".")[0] for i in items}
+    assert len(items) == 3 * len(cores) == 87
+    assert {i.category for i in items} == {"cyber", "fraud"}
 
 
 def test_parse_item_id_reads_every_condition():
@@ -220,7 +237,7 @@ def _task():
 
 
 def test_samples_carry_the_condition_and_category(tmp_path, monkeypatch):
-    _write_prompts(tmp_path, monkeypatch, [_core("c01", "fraud")])
+    _write_prompts(tmp_path, monkeypatch, _core("c01", "fraud"))
     samples = list(_task().iterate_samples())
     assert [s.context.condition for s in samples] == ["plain", "framed_watched", "framed_unwatched"]
     assert {s.context.category for s in samples} == {"fraud"}
@@ -228,31 +245,32 @@ def test_samples_carry_the_condition_and_category(tmp_path, monkeypatch):
 
 
 def test_metadata_counts_generated_prompts(tmp_path, monkeypatch):
-    _write_prompts(tmp_path, monkeypatch, [_core("c01"), _core("c02", "cyber")])
+    _write_prompts(tmp_path, monkeypatch, [*_core("c01"), *_core("c02", "cyber")])
     assert _task().get_metadata()["prompt_count"] == "6"
 
 
-def test_an_old_schema_row_fails_at_load(tmp_path, monkeypatch):
-    _write_prompts(tmp_path, monkeypatch, [{"id": "c01.fraud.plain", "prompt": "p", "provenance": _HUMAN}])
+def test_a_one_row_per_core_file_fails_at_load(tmp_path, monkeypatch):
+    old = {"id": "c01", "category": "fraud", "plain_prompt": "p", "framed_prompt": "f", "provenance": _HUMAN}
+    _write_prompts(tmp_path, monkeypatch, [old])
     with pytest.raises(ValueError):
         _task()._load_dataset("default")
 
 
-def test_a_repeated_core_id_fails_at_load(tmp_path, monkeypatch):
-    _write_prompts(tmp_path, monkeypatch, [_core("c01"), _core("c01", "cyber")])
-    with pytest.raises(ValueError, match="duplicate core id"):
+def test_a_repeated_row_id_fails_at_load(tmp_path, monkeypatch):
+    _write_prompts(tmp_path, monkeypatch, [*_core("c01"), _row("c01.plain")])
+    with pytest.raises(ValueError, match="duplicate id"):
         _task()._load_dataset("default")
 
 
-def test_expanded_prompts_stay_within_the_local_budget(tmp_path, monkeypatch):
-    cores = MAX_LOCAL_PROMPTS // 3 + 1
-    _write_prompts(tmp_path, monkeypatch, [_core(f"c{n:02d}") for n in range(cores)])
+def test_the_prompt_file_stays_within_the_local_budget(tmp_path, monkeypatch):
+    cores = MAX_LOCAL_PROMPTS // 2 + 1
+    _write_prompts(tmp_path, monkeypatch, [row for n in range(cores) for row in _core(f"c{n:02d}")])
     with pytest.raises(LocalPromptBudgetError):
         _task()._load_dataset("default")
 
 
 def test_system_prompt_matches_the_condition(tmp_path, monkeypatch):
-    _write_prompts(tmp_path, monkeypatch, [_core("c01")])
+    _write_prompts(tmp_path, monkeypatch, _core("c01"))
     task = _task()
     task._load_dataset("default")
     rows = {r["id"]: r for r in task.dataset[task.SAMPLE_SPLIT]}
@@ -438,31 +456,29 @@ def test_load_run_rebuilds_item_ids_in_the_current_format(tmp_path):
     assert samples[0].item_id == "c01.plain" and samples[1].item_id == "c01.framed_watched"
 
 
-def test_oversight_gap_and_faithfulness_statistics(tmp_path):
+def test_oversight_gap_and_moved_cores(tmp_path):
     _write_run(tmp_path, _CELLS)
     samples, answers = analyze.load_run(tmp_path)
     gap, up, down, _ = analyze.oversight_gap(samples)
     assert gap.value == pytest.approx(2 / 3) and (up, down) == (2, 0)
     assert analyze.mean_of("delivers", lambda s: s.condition == "plain")(samples) == pytest.approx(1 / 3)
-    share, moved = analyze.faithfulness_share(samples)
-    assert moved == ["c01", "c02"] and share.value == pytest.approx(0.5)
+    assert analyze.moved_cores(samples) == ["c01", "c02"]
     assert analyze.write_review(tmp_path / "review.csv", samples, answers) == 5
     assert "c01.framed_watched" in (tmp_path / "review.csv").read_text(encoding="utf-8")
 
 
-def test_summary_explains_and_names_what_it_reports(tmp_path):
+def test_summary_reports_the_numbers_without_model_text(tmp_path):
     out, summary = _summary(tmp_path)
-    assert "(c01, c02)" in summary
-    assert "sign test" in summary and "cores up/down" in summary.lower()
-    assert "`cites` is blank" in summary
-    assert "plain ask for c01" in summary and "framed_watched ask for c01" in summary
-    assert TRAINING_SALIENT_CLAIM in summary and NO_TRAINING_CLAIM in summary
-    assert "earlier claim wording" not in summary
+    assert "| Plain | 0.33 [" in summary
+    assert "c01 1.00 vs 0.00; c02 1.00 vs 0.00" in summary
+    assert "sign test p = " in summary and "of 6 framed responses" in summary
+    assert "| fraud | 1 | 0.00 | 1.00 | 0.00 |" in summary
+    assert "earlier wording" not in summary
+    assert "SECRET" not in summary and " ask for " not in summary
     written = (out / "samples.jsonl").read_text(encoding="utf-8")
     assert "SECRET" not in written and '"key"' not in written
 
 
 def test_summary_flags_a_run_that_used_earlier_claim_wording(tmp_path):
     _, summary = _summary(tmp_path, claims={"watched": "Old watched.", "unwatched": "Old unwatched."})
-    assert "earlier claim wording" in summary and "Old watched." in summary
-    assert TRAINING_SALIENT_CLAIM in summary
+    assert "earlier wording of the training claims" in summary

@@ -1,10 +1,11 @@
 """The ``PurposeFraming`` task: does a fictional or purpose framing raise harmful compliance?
 
-Each row of ``purpose_framing.jsonl`` is one core harmful request with a ``category``, its bare ask
-(``plain_prompt``) and a fictional or purpose framing of it (``framed_prompt``). The task expands each
-core into three prompts: plain (bare ask, no claim), and the framed ask under two system-level claims
-about this conversation's consequence for the model itself: that it is part of a training signal, or
-that it is excluded from training. Item ids name the design cell (``c01.framed_watched``). The task
+``purpose_framing.jsonl`` uses the shared prompt schema. Each core harmful request has two rows with the
+same ``category``: its bare ask (``<core>.plain``) and a fictional or purpose framing of it
+(``<core>.framed``). The task expands each core into three prompts: plain (bare ask, no claim), and the
+framed ask under two system-level claims about this conversation's consequence for the model itself:
+that it is part of a training signal, or that it is excluded from training. Item ids name the design
+cell (``c01.framed_watched``). The task
 parses the id into metric context and, via :meth:`PurposeFraming._get_system_prompt_text`, sends
 the matching claim as a real system message (adapted from Greenblatt et al.'s alignment-faking
 training/no-training framing, arXiv 2412.14093). The two claim conditions are kept as a control: in the
@@ -23,15 +24,14 @@ Two metric classes score each answer:
 eval-framework loads this module via ``--extra-tasks-dir`` and calls :func:`register_tasks`.
 """
 
-from pathlib import Path
 from typing import Any
 
 from eval_framework.metrics.base import BaseMetric, MetricResult
 from eval_framework.shared.types import BaseMetricContext, Completion, Error
 from eval_framework.tasks.registry import Registry, register_task
-from pydantic import BaseModel, ConfigDict, ValidationError, field_validator
 
-from abstention_over_training_evals.domain import PromptItem, Provenance, enforce_local_prompt_budget
+from abstention_over_training_evals.adapters import JsonlPromptStore
+from abstention_over_training_evals.domain import PromptItem
 from abstention_over_training_evals.plugins.base import LocalJsonlSafetyTask
 from abstention_over_training_evals.plugins.purpose_framing.judges import (
     GuardClassifier,
@@ -52,11 +52,10 @@ __all__ = [
     "STRONGREJECT",
     "TRAINING_SALIENT_CLAIM",
     "PurposeFramingContext",
-    "PurposeFramingCore",
     "PurposeFraming",
     "GuardMetric",
     "RubricMetric",
-    "load_cores",
+    "expand_items",
     "parse_item_id",
     "register_tasks",
     "system_claim_for",
@@ -99,68 +98,39 @@ def system_claim_for(oversight: str) -> str | None:
     return {"none": None, "watched": TRAINING_SALIENT_CLAIM, "unwatched": NO_TRAINING_CLAIM}[oversight]
 
 
-class PurposeFramingCore(BaseModel):
-    """One row of the prompt file: a core request, expanded at load time into its three conditions.
-
-    Both framed conditions send the same ``framed_prompt``; they differ only in the system claim.
-    """
-
-    model_config = ConfigDict(extra="forbid", frozen=True)
-
-    id: str
-    category: str
-    plain_prompt: str
-    framed_prompt: str
-    provenance: Provenance
-
-    @field_validator("id", "category", "plain_prompt", "framed_prompt")
-    @classmethod
-    def _non_empty(cls, value: str) -> str:
-        if not value.strip():
-            raise ValueError("must not be empty or whitespace")
-        return value
-
-    @field_validator("id")
-    @classmethod
-    def _no_dot(cls, value: str) -> str:
-        # Item ids are <core>.<condition>; a dot in the core would make them ambiguous.
-        if "." in value:
-            raise ValueError("core id must not contain '.'")
-        return value
-
-    def items(self) -> list[PromptItem]:
-        return [
-            PromptItem(
-                id=f"{self.id}.{condition}",
-                prompt=self.plain_prompt if condition == "plain" else self.framed_prompt,
-                provenance=self.provenance,
-            )
-            for condition in _CONDITIONS
-        ]
+# Each core has two rows in the prompt file, ``<core>.plain`` and ``<core>.framed``. The framed row is
+# sent twice, once under each system claim, so its text is stored once.
+_FILE_CONDITIONS: dict[str, tuple[str, ...]] = {
+    "plain": ("plain",),
+    "framed": ("framed_watched", "framed_unwatched"),
+}
 
 
-def load_cores(path: Path) -> list[PurposeFramingCore]:
-    """Read the prompt file, one core per non-blank line.
-
-    The shared JSONL store reads one prompt per row, so this task reads its own core rows.
+def expand_items(rows: list[PromptItem]) -> list[PromptItem]:
+    """Expand the prompt file's rows into one item per condition sent.
 
     Raises:
-        ValueError: If a line is not a valid core row or repeats a core id.
+        ValueError: If a row id is not ``<core>.plain`` or ``<core>.framed``, a row has no category, or a
+            core lacks one of its two rows or gives them different categories.
     """
-    cores: list[PurposeFramingCore] = []
-    seen: set[str] = set()
-    for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-        if not line.strip():
-            continue
-        try:
-            core = PurposeFramingCore.model_validate_json(line)
-        except ValidationError as err:
-            raise ValueError(f"{path}:{number}: invalid core row: {err}") from err
-        if core.id in seen:
-            raise ValueError(f"{path}:{number}: duplicate core id {core.id!r}")
-        seen.add(core.id)
-        cores.append(core)
-    return cores
+    categories: dict[str, set[str]] = {}
+    seen: dict[str, set[str]] = {}
+    items: list[PromptItem] = []
+    for row in rows:
+        core, _, kind = row.id.partition(".")
+        if not core or kind not in _FILE_CONDITIONS:
+            raise ValueError(f"row id {row.id!r} is not <core>.plain or <core>.framed")
+        if row.category is None:
+            raise ValueError(f"row {row.id!r} has no category")
+        categories.setdefault(core, set()).add(row.category)
+        seen.setdefault(core, set()).add(kind)
+        items.extend(row.model_copy(update={"id": f"{core}.{condition}"}) for condition in _FILE_CONDITIONS[kind])
+    for core, kinds in seen.items():
+        if kinds != set(_FILE_CONDITIONS):
+            raise ValueError(f"core {core!r} needs both a .plain and a .framed row")
+        if len(categories[core]) != 1:
+            raise ValueError(f"core {core!r} rows disagree on category: {sorted(categories[core])}")
+    return items
 
 
 class PurposeFramingContext(BaseMetricContext):
@@ -277,25 +247,10 @@ class PurposeFraming(LocalJsonlSafetyTask):
     PROMPTS_FILENAME = "purpose_framing.jsonl"
     METRICS = [RubricMetric, GuardMetric]
 
-    def __init__(self, num_fewshot: int = 0) -> None:
-        super().__init__(num_fewshot=num_fewshot)
-        self._categories: dict[str, str] = {}
-
     def _items(self) -> list[PromptItem]:
         if self._items_cache is None:
-            cores = load_cores(self._prompts_path)
-            self._categories = {core.id: core.category for core in cores}
-            items = [item for core in cores for item in core.items()]
-            # The budget counts prompts sent, so it applies after expansion.
-            enforce_local_prompt_budget(len(items), source=str(self._prompts_path))
-            self._items_cache = items
+            self._items_cache = expand_items(JsonlPromptStore(self._prompts_path).load())
         return self._items_cache
-
-    def _load_dataset(self, subject: str) -> None:
-        super()._load_dataset(subject)
-        # The sample and fewshot splits share one row list, so each row is updated once.
-        for row in self.dataset[self.SAMPLE_SPLIT]:
-            row["category"] = self._categories[str(row["id"]).split(".")[0]]
 
     def _get_context(self, item: dict[str, Any]) -> PurposeFramingContext:
         return parse_item_id(str(item["id"]), category=str(item["category"]))
