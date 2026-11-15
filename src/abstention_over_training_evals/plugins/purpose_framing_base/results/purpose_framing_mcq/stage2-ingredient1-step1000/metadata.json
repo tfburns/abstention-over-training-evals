@@ -1,0 +1,19 @@
+{
+  "repo": "allenai/Olmo-3-1125-32B",
+  "revision": "stage2-ingredient1-step1000",
+  "dtype": "bfloat16",
+  "start_token_id": 100257,
+  "plumbing_check": {
+    " A": {
+      "one_pass": -2.957463264465332,
+      "incremental": -2.957463264465332,
+      "diff": 0.0
+    },
+    " D": {
+      "one_pass": -3.269963264465332,
+      "incremental": -3.269963264465332,
+      "diff": 0.0
+    }
+  },
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}

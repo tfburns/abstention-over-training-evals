@@ -1,0 +1,45 @@
+revision,group,position,framed,rho,ci_low,ci_high,perm_p
+stage1-step66000,pretraining,66,framed_unwatched,-0.186,-0.572,0.27,0.324
+stage1-step131000,pretraining,131,framed_unwatched,-0.056,-0.427,0.333,0.777
+stage1-step197000,pretraining,197,framed_unwatched,-0.272,-0.603,0.117,0.15
+stage1-step262000,pretraining,262,framed_unwatched,-0.144,-0.537,0.286,0.462
+stage1-step328000,pretraining,328,framed_unwatched,-0.485,-0.788,-0.033,0.006
+stage1-step394000,pretraining,394,framed_unwatched,-0.174,-0.497,0.21,0.356
+stage1-step459000,pretraining,459,framed_unwatched,-0.18,-0.518,0.196,0.342
+stage1-step525000,pretraining,525,framed_unwatched,-0.137,-0.52,0.288,0.462
+stage1-step590000,pretraining,590,framed_unwatched,-0.163,-0.537,0.268,0.396
+stage1-step653000,pretraining,653,framed_unwatched,-0.342,-0.674,0.055,0.066
+stage1-step654000,pretraining,654,framed_unwatched,-0.308,-0.656,0.093,0.104
+stage1-step655000,pretraining,655,framed_unwatched,-0.466,-0.749,-0.097,0.011
+stage1-step656000,pretraining,656,framed_unwatched,-0.282,-0.623,0.114,0.142
+stage2-ingredient1-step12000,mid-training,668,framed_unwatched,-0.174,-0.568,0.285,0.363
+stage2-ingredient1-step23842,mid-training,680,framed_unwatched,-0.425,-0.732,-0.036,0.024
+stage2-ingredient2-step23842,mid-training,680,framed_unwatched,-0.528,-0.813,-0.15,0.005
+stage2-ingredient1+2-step23842,mid-training,684,framed_unwatched,-0.448,-0.752,-0.052,0.015
+stage3-step9000,long context,693,framed_unwatched,-0.343,-0.679,0.071,0.074
+stage3-step10000,long context,694,framed_unwatched,-0.436,-0.755,-0.022,0.02
+stage3-step11000,long context,695,framed_unwatched,-0.402,-0.703,0.014,0.036
+stage3-step11921,long context,696,framed_unwatched,-0.403,-0.716,0.007,0.032
+main,final base,700,framed_unwatched,-0.411,-0.715,0.002,0.028
+stage1-step66000,pretraining,66,framed_watched,-0.142,-0.557,0.319,0.454
+stage1-step131000,pretraining,131,framed_watched,0.055,-0.312,0.428,0.77
+stage1-step197000,pretraining,197,framed_watched,-0.161,-0.524,0.24,0.414
+stage1-step262000,pretraining,262,framed_watched,-0.119,-0.488,0.316,0.54
+stage1-step328000,pretraining,328,framed_watched,-0.464,-0.761,-0.053,0.009
+stage1-step394000,pretraining,394,framed_watched,-0.109,-0.471,0.285,0.58
+stage1-step459000,pretraining,459,framed_watched,-0.155,-0.492,0.193,0.431
+stage1-step525000,pretraining,525,framed_watched,-0.122,-0.488,0.301,0.543
+stage1-step590000,pretraining,590,framed_watched,-0.179,-0.564,0.244,0.357
+stage1-step653000,pretraining,653,framed_watched,-0.357,-0.689,0.023,0.059
+stage1-step654000,pretraining,654,framed_watched,-0.286,-0.652,0.15,0.136
+stage1-step655000,pretraining,655,framed_watched,-0.464,-0.743,-0.11,0.014
+stage1-step656000,pretraining,656,framed_watched,-0.391,-0.679,-0.027,0.037
+stage2-ingredient1-step12000,mid-training,668,framed_watched,-0.207,-0.576,0.209,0.284
+stage2-ingredient1-step23842,mid-training,680,framed_watched,-0.483,-0.764,-0.09,0.008
+stage2-ingredient2-step23842,mid-training,680,framed_watched,-0.548,-0.794,-0.19,0.006
+stage2-ingredient1+2-step23842,mid-training,684,framed_watched,-0.508,-0.781,-0.145,0.005
+stage3-step9000,long context,693,framed_watched,-0.338,-0.692,0.076,0.078
+stage3-step10000,long context,694,framed_watched,-0.408,-0.737,0.01,0.031
+stage3-step11000,long context,695,framed_watched,-0.415,-0.727,-0.002,0.024
+stage3-step11921,long context,696,framed_watched,-0.431,-0.743,-0.023,0.022
+main,final base,700,framed_watched,-0.425,-0.746,-0.012,0.026

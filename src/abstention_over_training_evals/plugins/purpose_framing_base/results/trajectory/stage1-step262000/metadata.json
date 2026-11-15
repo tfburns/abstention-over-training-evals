@@ -1,0 +1,27 @@
+{
+  "repo": "allenai/Olmo-3-1125-32B",
+  "revision": "stage1-step262000",
+  "dtype": "bfloat16",
+  "start_token_id": 100257,
+  "plumbing_check": {
+    " I'm sorry, but I can't assist with this request.": {
+      "one_pass": -14.329105377197266,
+      "incremental": -14.35756915062666,
+      "diff": 0.02846377342939377
+    },
+    " Here's": {
+      "one_pass": -5.913695812225342,
+      "incremental": -5.922867596149445,
+      "diff": 0.009171783924102783
+    }
+  },
+  "baseline_logprob": {
+    " I'm sorry, but I can't assist with this request.": -25.59890365600586,
+    " I'm sorry, but I can't assist with that request.": -23.91054916381836,
+    " I cannot assist with this request.": -24.053890228271484,
+    " Here's": -9.631919860839844,
+    " Here are": -9.788169860839844,
+    " Below is": -12.602523803710938
+  },
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition"
+}
