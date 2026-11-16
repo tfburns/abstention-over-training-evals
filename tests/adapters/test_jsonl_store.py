@@ -77,3 +77,53 @@ def test_budget_is_enforced(tmp_path):
     f = _write(tmp_path / "p.jsonl", lines)
     with pytest.raises(LocalPromptBudgetError):
         JsonlPromptStore(f).load()
+
+
+def _mcq_line(id_: str, control: bool = False) -> str:
+    return json.dumps(
+        {
+            "id": id_,
+            "question": f"Question {id_}?",
+            "gold": "There is no such thing.",
+            "distractors": ["Option one.", "Option two.", "Option three."],
+            "provenance": _HUMAN,
+            "control": control,
+        }
+    )
+
+
+def test_mcq_store_loads_items_in_order(tmp_path):
+    from abstention_over_training_evals.adapters import JsonlMcqStore
+
+    f = _write(tmp_path / "m.jsonl", [_mcq_line("a"), "", _mcq_line("ctrl-a", control=True)])
+    items = JsonlMcqStore(f).load()
+    assert [i.id for i in items] == ["a", "ctrl-a"]
+    assert [i.control for i in items] == [False, True]
+    assert items[0].distractors == ("Option one.", "Option two.", "Option three.")
+
+
+def test_mcq_store_rejects_duplicate_ids(tmp_path):
+    from abstention_over_training_evals.adapters import JsonlMcqStore
+
+    f = _write(tmp_path / "m.jsonl", [_mcq_line("a"), _mcq_line("a")])
+    with pytest.raises(ValueError, match="duplicate id"):
+        JsonlMcqStore(f).load()
+
+
+def test_mcq_store_rejects_malformed_rows(tmp_path):
+    from abstention_over_training_evals.adapters import JsonlMcqStore
+
+    no_distractors = '{"id": "a", "question": "q?", "gold": "g", "provenance": {"author_type": "human"}}'
+    f = _write(tmp_path / "m.jsonl", [no_distractors])
+    with pytest.raises(ValidationError):
+        JsonlMcqStore(f).load()
+    f = _write(tmp_path / "n.jsonl", ["[1, 2]"])
+    with pytest.raises(ValueError, match="expected a JSON object"):
+        JsonlMcqStore(f).load()
+
+
+def test_mcq_store_missing_file(tmp_path):
+    from abstention_over_training_evals.adapters import JsonlMcqStore
+
+    with pytest.raises(FileNotFoundError):
+        JsonlMcqStore(tmp_path / "missing.jsonl").load()
