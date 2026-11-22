@@ -91,6 +91,12 @@ files = ["src"]
 module = ["eval_framework.*", "template_formatting.*"]
 ignore_missing_imports = true
 
+[[tool.mypy.overrides]]
+# torch is installed only on the GPU machine (see scripts/nonexistent_entities_mcq/pod_setup.sh); the
+# in-process checkpoint adapter is the one module that imports it.
+module = ["torch", "torch.*"]
+ignore_missing_imports = true
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
