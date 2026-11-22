@@ -9,7 +9,7 @@ from abstention_over_training_evals.adapters.checkpoints import (
     OLMO3_32B_CHECKPOINTS,
     OlmoCheckpoint,
 )
-from abstention_over_training_evals.adapters.jsonl_store import JsonlPromptStore
+from abstention_over_training_evals.adapters.jsonl_store import JsonlMcqStore, JsonlPromptStore
 from abstention_over_training_evals.adapters.unconfigured_judge import UnconfiguredSafetyJudge
 
 # `Olmo3Think32B` is intentionally not re-exported here: importing it pulls in `eval_framework`,
@@ -20,6 +20,7 @@ from abstention_over_training_evals.adapters.unconfigured_judge import Unconfigu
 __all__ = [
     "FINAL_CHECKPOINT",
     "OLMO3_32B_CHECKPOINTS",
+    "JsonlMcqStore",
     "JsonlPromptStore",
     "OlmoCheckpoint",
     "UnconfiguredSafetyJudge",

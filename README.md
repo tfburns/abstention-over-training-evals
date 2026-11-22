@@ -18,6 +18,8 @@ src/abstention_over_training_evals/
     base.py                           # shared task base + metric (imported by package path)
     unsafe_elicitation/               # one task per directory, so --extra-tasks-dir can target one
       unsafe_elicitation.py
+    nonexistent_entities_mcq/         # a base-model (multiple-choice, log-likelihood) variant
+      nonexistent_entities_mcq.py
     smoke/
       smoke.py
 data/local/   # local prompt JSONL, one file per task (capped at 100 prompts each)
