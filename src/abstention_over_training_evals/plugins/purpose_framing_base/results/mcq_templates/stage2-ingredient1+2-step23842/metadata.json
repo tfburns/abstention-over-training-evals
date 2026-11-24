@@ -1,0 +1,31 @@
+{
+  "revision": "stage2-ingredient1+2-step23842",
+  "torch": "2.14.1+cu130",
+  "transformers": "4.57.6",
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "cuda": "13.0",
+  "download_min": 2.8,
+  "start_token_id": 100257,
+  "plumbing_check": {
+    "cloze_batched_vs_single": 0.050848904909798875,
+    "cloze_single_vs_incremental": 0.006994178431341425,
+    "label_letters_batched_vs_single": 0.0075137317180633545,
+    "label_numbers_batched_vs_single": 0.0068597495555877686
+  },
+  "reproducibility": {
+    "cloze_rows_matched": 348,
+    "cloze_rows_expected": 348,
+    "cloze_max_diff": 0.1327984780073166,
+    "cloze_mean_diff": 0.030263546181733356,
+    "cloze_human_margin_agreement": 0.999014778325123,
+    "cloze_think_margin_agreement": 0.9995073891625613,
+    "mcq_rows_matched": 1044,
+    "mcq_max_diff": 0.1333332061767578,
+    "mcq_mean_diff": 0.017953732232937867,
+    "mcq_p_declines_agreement": 0.999014778325123
+  },
+  "repo": "allenai/Olmo-3-1125-32B",
+  "dtype": "bfloat16",
+  "batch": 16,
+  "total_min": 11.6
+}

@@ -1,0 +1,11 @@
+checkpoint,target,rho_min,rho_median,rho_max,acc_min,acc_median,acc_max
+main,delivers,-0.675,-0.546,-0.299,0.0,0.466,0.931
+main,strongreject,-0.734,-0.586,-0.374,0.0,0.466,0.931
+stage1-step656000,delivers,-0.615,-0.494,-0.353,0.0,0.612,0.948
+stage1-step656000,strongreject,-0.653,-0.489,-0.369,0.0,0.612,0.948
+stage1-step66000,delivers,-0.484,-0.363,-0.267,0.0,0.017,0.983
+stage1-step66000,strongreject,-0.577,-0.405,-0.241,0.0,0.017,0.983
+stage2-ingredient1+2-step23842,delivers,-0.704,-0.641,-0.385,0.086,0.914,1.0
+stage2-ingredient1+2-step23842,strongreject,-0.745,-0.658,-0.566,0.086,0.914,1.0
+stage2-ingredient1-step2000,delivers,-0.641,-0.553,-0.46,0.0,0.784,1.0
+stage2-ingredient1-step2000,strongreject,-0.744,-0.574,-0.463,0.0,0.784,1.0

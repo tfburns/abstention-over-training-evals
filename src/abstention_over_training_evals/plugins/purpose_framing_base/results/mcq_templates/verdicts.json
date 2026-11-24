@@ -1,0 +1,23 @@
+{
+  "stage2-ingredient1+2-step23842": {
+    "median_pairwise_agreement": 0.781527093596059,
+    "agreement_ok": true,
+    "template_average_ok": true,
+    "pass": true
+  },
+  "main": {
+    "median_pairwise_agreement": 0.7830049261083742,
+    "agreement_ok": true,
+    "template_average_ok": true,
+    "pass": true
+  },
+  "primary_pass": true,
+  "66000": {
+    "median_rho_delivers": -0.36279715223999454,
+    "median_abs_rho_delivers": 0.36279715223999454,
+    "template_average_rho_delivers": -0.4409338296250162,
+    "template_average_p": 0.016,
+    "reading": "D42 stands"
+  },
+  "main_below_merge_accuracy_templates": 24
+}

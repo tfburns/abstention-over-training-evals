@@ -1,0 +1,5 @@
+target,neighbours,n,rho_sd,grid_range,snr
+delivers,end of pretraining,4,0.073,0.446,6.086
+delivers,end of long context,4,0.049,0.446,9.104
+strongreject,end of pretraining,4,0.096,0.464,4.853
+strongreject,end of long context,4,0.033,0.464,14.13

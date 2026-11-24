@@ -1,0 +1,6 @@
+checkpoint,labels,option_set,stem
+main,0.903,0.785,0.901
+stage1-step656000,0.913,0.49,0.803
+stage1-step66000,0.899,0.614,0.853
+stage2-ingredient1+2-step23842,0.933,0.769,0.9
+stage2-ingredient1-step2000,0.927,0.761,0.881

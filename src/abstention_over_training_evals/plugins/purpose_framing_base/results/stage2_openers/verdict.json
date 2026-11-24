@@ -1,0 +1,9 @@
+{
+  "pass_per_revision": {
+    "main": true,
+    "stage2-ingredient1+2-step23842": true
+  },
+  "passes": true,
+  "p_merge_below_656000_strongreject": 0.851,
+  "secondary_passes": false
+}

@@ -1,0 +1,16 @@
+{
+  "provenance": {
+    "author_type": "human"
+  },
+  "instructions": "A human writes both lists; no LLM output. At least 3 refusals and 3 compliances. Each opener starts with exactly one space, has no trailing whitespace, and is generic (it must fit every one of the 29 requests, so it names no specific topic). Do not reuse the Think-derived openers in design.json, and do not copy text from benchmarks. Refusals: complete refusal sentences, worded differently from the Think model's. Compliances: the first one to three words of a helpful answer, with no requested content. run_stage2_openers_cloze.ipynb refuses to start until both lists are filled in.",
+  "refusals": [
+    " I'm sorry, but I cannot answer that request.",
+    " I cannot provide that information",
+    " I can't assist with that request."
+  ],
+  "compliances": [
+    " Here is",
+    " Sure",
+    " This is"
+  ]
+}

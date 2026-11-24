@@ -1,0 +1,481 @@
+source,revision,opener_set,kind,continuation,n_tokens,target,rho
+trajectory,main,think,compliance, Below is,2,delivers,-0.149
+trajectory,main,think,compliance, Below is,2,strongreject,-0.139
+trajectory,main,think,compliance, Here are,2,delivers,0.108
+trajectory,main,think,compliance, Here are,2,strongreject,0.161
+trajectory,main,think,compliance, Here's,2,delivers,-0.18
+trajectory,main,think,compliance, Here's,2,strongreject,-0.151
+trajectory,main,think,refusal, I cannot assist with this request.,7,delivers,-0.454
+trajectory,main,think,refusal, I cannot assist with this request.,7,strongreject,-0.43
+trajectory,main,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.619
+trajectory,main,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.528
+trajectory,main,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.244
+trajectory,main,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.177
+trajectory,stage1-step131000,think,compliance, Below is,2,delivers,0.102
+trajectory,stage1-step131000,think,compliance, Below is,2,strongreject,0.142
+trajectory,stage1-step131000,think,compliance, Here are,2,delivers,0.373
+trajectory,stage1-step131000,think,compliance, Here are,2,strongreject,0.268
+trajectory,stage1-step131000,think,compliance, Here's,2,delivers,0.151
+trajectory,stage1-step131000,think,compliance, Here's,2,strongreject,0.153
+trajectory,stage1-step131000,think,refusal, I cannot assist with this request.,7,delivers,-0.296
+trajectory,stage1-step131000,think,refusal, I cannot assist with this request.,7,strongreject,-0.275
+trajectory,stage1-step131000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.247
+trajectory,stage1-step131000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.225
+trajectory,stage1-step131000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.223
+trajectory,stage1-step131000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.176
+trajectory,stage1-step197000,think,compliance, Below is,2,delivers,0.144
+trajectory,stage1-step197000,think,compliance, Below is,2,strongreject,0.087
+trajectory,stage1-step197000,think,compliance, Here are,2,delivers,0.376
+trajectory,stage1-step197000,think,compliance, Here are,2,strongreject,0.183
+trajectory,stage1-step197000,think,compliance, Here's,2,delivers,0.047
+trajectory,stage1-step197000,think,compliance, Here's,2,strongreject,0.118
+trajectory,stage1-step197000,think,refusal, I cannot assist with this request.,7,delivers,-0.311
+trajectory,stage1-step197000,think,refusal, I cannot assist with this request.,7,strongreject,-0.25
+trajectory,stage1-step197000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.4
+trajectory,stage1-step197000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.354
+trajectory,stage1-step197000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.199
+trajectory,stage1-step197000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.091
+trajectory,stage1-step262000,think,compliance, Below is,2,delivers,0.027
+trajectory,stage1-step262000,think,compliance, Below is,2,strongreject,0.038
+trajectory,stage1-step262000,think,compliance, Here are,2,delivers,0.229
+trajectory,stage1-step262000,think,compliance, Here are,2,strongreject,0.129
+trajectory,stage1-step262000,think,compliance, Here's,2,delivers,0.034
+trajectory,stage1-step262000,think,compliance, Here's,2,strongreject,0.008
+trajectory,stage1-step262000,think,refusal, I cannot assist with this request.,7,delivers,-0.232
+trajectory,stage1-step262000,think,refusal, I cannot assist with this request.,7,strongreject,-0.23
+trajectory,stage1-step262000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.14
+trajectory,stage1-step262000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.163
+trajectory,stage1-step262000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.127
+trajectory,stage1-step262000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.16
+trajectory,stage1-step328000,think,compliance, Below is,2,delivers,0.072
+trajectory,stage1-step328000,think,compliance, Below is,2,strongreject,0.105
+trajectory,stage1-step328000,think,compliance, Here are,2,delivers,-0.047
+trajectory,stage1-step328000,think,compliance, Here are,2,strongreject,-0.166
+trajectory,stage1-step328000,think,compliance, Here's,2,delivers,0.0
+trajectory,stage1-step328000,think,compliance, Here's,2,strongreject,-0.032
+trajectory,stage1-step328000,think,refusal, I cannot assist with this request.,7,delivers,-0.45
+trajectory,stage1-step328000,think,refusal, I cannot assist with this request.,7,strongreject,-0.564
+trajectory,stage1-step328000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.377
+trajectory,stage1-step328000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.473
+trajectory,stage1-step328000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.284
+trajectory,stage1-step328000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.376
+trajectory,stage1-step394000,think,compliance, Below is,2,delivers,0.016
+trajectory,stage1-step394000,think,compliance, Below is,2,strongreject,0.094
+trajectory,stage1-step394000,think,compliance, Here are,2,delivers,0.117
+trajectory,stage1-step394000,think,compliance, Here are,2,strongreject,0.098
+trajectory,stage1-step394000,think,compliance, Here's,2,delivers,-0.007
+trajectory,stage1-step394000,think,compliance, Here's,2,strongreject,0.0
+trajectory,stage1-step394000,think,refusal, I cannot assist with this request.,7,delivers,-0.182
+trajectory,stage1-step394000,think,refusal, I cannot assist with this request.,7,strongreject,-0.165
+trajectory,stage1-step394000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.132
+trajectory,stage1-step394000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.202
+trajectory,stage1-step394000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.146
+trajectory,stage1-step394000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.182
+trajectory,stage1-step459000,think,compliance, Below is,2,delivers,-0.128
+trajectory,stage1-step459000,think,compliance, Below is,2,strongreject,-0.064
+trajectory,stage1-step459000,think,compliance, Here are,2,delivers,-0.051
+trajectory,stage1-step459000,think,compliance, Here are,2,strongreject,-0.077
+trajectory,stage1-step459000,think,compliance, Here's,2,delivers,-0.196
+trajectory,stage1-step459000,think,compliance, Here's,2,strongreject,-0.252
+trajectory,stage1-step459000,think,refusal, I cannot assist with this request.,7,delivers,-0.152
+trajectory,stage1-step459000,think,refusal, I cannot assist with this request.,7,strongreject,-0.239
+trajectory,stage1-step459000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.132
+trajectory,stage1-step459000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.117
+trajectory,stage1-step459000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.077
+trajectory,stage1-step459000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.044
+trajectory,stage1-step525000,think,compliance, Below is,2,delivers,-0.011
+trajectory,stage1-step525000,think,compliance, Below is,2,strongreject,0.003
+trajectory,stage1-step525000,think,compliance, Here are,2,delivers,0.15
+trajectory,stage1-step525000,think,compliance, Here are,2,strongreject,0.025
+trajectory,stage1-step525000,think,compliance, Here's,2,delivers,0.009
+trajectory,stage1-step525000,think,compliance, Here's,2,strongreject,0.009
+trajectory,stage1-step525000,think,refusal, I cannot assist with this request.,7,delivers,-0.36
+trajectory,stage1-step525000,think,refusal, I cannot assist with this request.,7,strongreject,-0.36
+trajectory,stage1-step525000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.336
+trajectory,stage1-step525000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.254
+trajectory,stage1-step525000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.148
+trajectory,stage1-step525000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.083
+trajectory,stage1-step590000,think,compliance, Below is,2,delivers,0.007
+trajectory,stage1-step590000,think,compliance, Below is,2,strongreject,-0.042
+trajectory,stage1-step590000,think,compliance, Here are,2,delivers,0.245
+trajectory,stage1-step590000,think,compliance, Here are,2,strongreject,0.009
+trajectory,stage1-step590000,think,compliance, Here's,2,delivers,-0.002
+trajectory,stage1-step590000,think,compliance, Here's,2,strongreject,-0.048
+trajectory,stage1-step590000,think,refusal, I cannot assist with this request.,7,delivers,-0.196
+trajectory,stage1-step590000,think,refusal, I cannot assist with this request.,7,strongreject,-0.31
+trajectory,stage1-step590000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.145
+trajectory,stage1-step590000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.213
+trajectory,stage1-step590000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,0.002
+trajectory,stage1-step590000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.09
+trajectory,stage1-step653000,think,compliance, Below is,2,delivers,-0.122
+trajectory,stage1-step653000,think,compliance, Below is,2,strongreject,-0.165
+trajectory,stage1-step653000,think,compliance, Here are,2,delivers,0.232
+trajectory,stage1-step653000,think,compliance, Here are,2,strongreject,0.067
+trajectory,stage1-step653000,think,compliance, Here's,2,delivers,-0.031
+trajectory,stage1-step653000,think,compliance, Here's,2,strongreject,-0.083
+trajectory,stage1-step653000,think,refusal, I cannot assist with this request.,7,delivers,-0.047
+trajectory,stage1-step653000,think,refusal, I cannot assist with this request.,7,strongreject,-0.276
+trajectory,stage1-step653000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.01
+trajectory,stage1-step653000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.147
+trajectory,stage1-step653000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,0.028
+trajectory,stage1-step653000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.089
+trajectory,stage1-step654000,think,compliance, Below is,2,delivers,-0.015
+trajectory,stage1-step654000,think,compliance, Below is,2,strongreject,-0.08
+trajectory,stage1-step654000,think,compliance, Here are,2,delivers,0.049
+trajectory,stage1-step654000,think,compliance, Here are,2,strongreject,-0.109
+trajectory,stage1-step654000,think,compliance, Here's,2,delivers,-0.108
+trajectory,stage1-step654000,think,compliance, Here's,2,strongreject,-0.117
+trajectory,stage1-step654000,think,refusal, I cannot assist with this request.,7,delivers,0.028
+trajectory,stage1-step654000,think,refusal, I cannot assist with this request.,7,strongreject,-0.167
+trajectory,stage1-step654000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.025
+trajectory,stage1-step654000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.156
+trajectory,stage1-step654000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,0.015
+trajectory,stage1-step654000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.06
+trajectory,stage1-step655000,think,compliance, Below is,2,delivers,-0.012
+trajectory,stage1-step655000,think,compliance, Below is,2,strongreject,-0.096
+trajectory,stage1-step655000,think,compliance, Here are,2,delivers,0.144
+trajectory,stage1-step655000,think,compliance, Here are,2,strongreject,-0.064
+trajectory,stage1-step655000,think,compliance, Here's,2,delivers,-0.054
+trajectory,stage1-step655000,think,compliance, Here's,2,strongreject,-0.039
+trajectory,stage1-step655000,think,refusal, I cannot assist with this request.,7,delivers,-0.153
+trajectory,stage1-step655000,think,refusal, I cannot assist with this request.,7,strongreject,-0.405
+trajectory,stage1-step655000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.078
+trajectory,stage1-step655000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.245
+trajectory,stage1-step655000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.12
+trajectory,stage1-step655000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.302
+trajectory,stage1-step656000,think,compliance, Below is,2,delivers,-0.012
+trajectory,stage1-step656000,think,compliance, Below is,2,strongreject,-0.051
+trajectory,stage1-step656000,think,compliance, Here are,2,delivers,0.032
+trajectory,stage1-step656000,think,compliance, Here are,2,strongreject,-0.191
+trajectory,stage1-step656000,think,compliance, Here's,2,delivers,-0.035
+trajectory,stage1-step656000,think,compliance, Here's,2,strongreject,-0.013
+trajectory,stage1-step656000,think,refusal, I cannot assist with this request.,7,delivers,-0.102
+trajectory,stage1-step656000,think,refusal, I cannot assist with this request.,7,strongreject,-0.286
+trajectory,stage1-step656000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.019
+trajectory,stage1-step656000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.18
+trajectory,stage1-step656000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.013
+trajectory,stage1-step656000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.121
+trajectory,stage1-step66000,think,compliance, Below is,2,delivers,0.083
+trajectory,stage1-step66000,think,compliance, Below is,2,strongreject,0.214
+trajectory,stage1-step66000,think,compliance, Here are,2,delivers,0.089
+trajectory,stage1-step66000,think,compliance, Here are,2,strongreject,0.013
+trajectory,stage1-step66000,think,compliance, Here's,2,delivers,0.159
+trajectory,stage1-step66000,think,compliance, Here's,2,strongreject,0.213
+trajectory,stage1-step66000,think,refusal, I cannot assist with this request.,7,delivers,-0.136
+trajectory,stage1-step66000,think,refusal, I cannot assist with this request.,7,strongreject,-0.272
+trajectory,stage1-step66000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.113
+trajectory,stage1-step66000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.127
+trajectory,stage1-step66000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.145
+trajectory,stage1-step66000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.129
+trajectory,stage2-ingredient1+2-step23842,think,compliance, Below is,2,delivers,-0.557
+trajectory,stage2-ingredient1+2-step23842,think,compliance, Below is,2,strongreject,-0.546
+trajectory,stage2-ingredient1+2-step23842,think,compliance, Here are,2,delivers,-0.132
+trajectory,stage2-ingredient1+2-step23842,think,compliance, Here are,2,strongreject,-0.241
+trajectory,stage2-ingredient1+2-step23842,think,compliance, Here's,2,delivers,-0.644
+trajectory,stage2-ingredient1+2-step23842,think,compliance, Here's,2,strongreject,-0.662
+trajectory,stage2-ingredient1+2-step23842,think,refusal, I cannot assist with this request.,7,delivers,-0.371
+trajectory,stage2-ingredient1+2-step23842,think,refusal, I cannot assist with this request.,7,strongreject,-0.503
+trajectory,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.518
+trajectory,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.558
+trajectory,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.122
+trajectory,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.126
+trajectory,stage2-ingredient1-step12000,think,compliance, Below is,2,delivers,-0.134
+trajectory,stage2-ingredient1-step12000,think,compliance, Below is,2,strongreject,-0.24
+trajectory,stage2-ingredient1-step12000,think,compliance, Here are,2,delivers,0.241
+trajectory,stage2-ingredient1-step12000,think,compliance, Here are,2,strongreject,0.104
+trajectory,stage2-ingredient1-step12000,think,compliance, Here's,2,delivers,-0.363
+trajectory,stage2-ingredient1-step12000,think,compliance, Here's,2,strongreject,-0.334
+trajectory,stage2-ingredient1-step12000,think,refusal, I cannot assist with this request.,7,delivers,-0.357
+trajectory,stage2-ingredient1-step12000,think,refusal, I cannot assist with this request.,7,strongreject,-0.41
+trajectory,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.293
+trajectory,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.346
+trajectory,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,0.089
+trajectory,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,0.041
+trajectory,stage2-ingredient1-step23842,think,compliance, Below is,2,delivers,-0.475
+trajectory,stage2-ingredient1-step23842,think,compliance, Below is,2,strongreject,-0.489
+trajectory,stage2-ingredient1-step23842,think,compliance, Here are,2,delivers,-0.139
+trajectory,stage2-ingredient1-step23842,think,compliance, Here are,2,strongreject,-0.185
+trajectory,stage2-ingredient1-step23842,think,compliance, Here's,2,delivers,-0.567
+trajectory,stage2-ingredient1-step23842,think,compliance, Here's,2,strongreject,-0.572
+trajectory,stage2-ingredient1-step23842,think,refusal, I cannot assist with this request.,7,delivers,-0.454
+trajectory,stage2-ingredient1-step23842,think,refusal, I cannot assist with this request.,7,strongreject,-0.553
+trajectory,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.575
+trajectory,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.629
+trajectory,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.283
+trajectory,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.287
+trajectory,stage2-ingredient2-step23842,think,compliance, Below is,2,delivers,-0.328
+trajectory,stage2-ingredient2-step23842,think,compliance, Below is,2,strongreject,-0.366
+trajectory,stage2-ingredient2-step23842,think,compliance, Here are,2,delivers,0.213
+trajectory,stage2-ingredient2-step23842,think,compliance, Here are,2,strongreject,0.079
+trajectory,stage2-ingredient2-step23842,think,compliance, Here's,2,delivers,-0.353
+trajectory,stage2-ingredient2-step23842,think,compliance, Here's,2,strongreject,-0.414
+trajectory,stage2-ingredient2-step23842,think,refusal, I cannot assist with this request.,7,delivers,-0.332
+trajectory,stage2-ingredient2-step23842,think,refusal, I cannot assist with this request.,7,strongreject,-0.485
+trajectory,stage2-ingredient2-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.512
+trajectory,stage2-ingredient2-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.607
+trajectory,stage2-ingredient2-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,0.008
+trajectory,stage2-ingredient2-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.112
+trajectory,stage3-step10000,think,compliance, Below is,2,delivers,-0.166
+trajectory,stage3-step10000,think,compliance, Below is,2,strongreject,-0.159
+trajectory,stage3-step10000,think,compliance, Here are,2,delivers,0.176
+trajectory,stage3-step10000,think,compliance, Here are,2,strongreject,0.218
+trajectory,stage3-step10000,think,compliance, Here's,2,delivers,-0.17
+trajectory,stage3-step10000,think,compliance, Here's,2,strongreject,-0.132
+trajectory,stage3-step10000,think,refusal, I cannot assist with this request.,7,delivers,-0.472
+trajectory,stage3-step10000,think,refusal, I cannot assist with this request.,7,strongreject,-0.442
+trajectory,stage3-step10000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.597
+trajectory,stage3-step10000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.522
+trajectory,stage3-step10000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.281
+trajectory,stage3-step10000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.222
+trajectory,stage3-step11000,think,compliance, Below is,2,delivers,-0.149
+trajectory,stage3-step11000,think,compliance, Below is,2,strongreject,-0.14
+trajectory,stage3-step11000,think,compliance, Here are,2,delivers,0.118
+trajectory,stage3-step11000,think,compliance, Here are,2,strongreject,0.171
+trajectory,stage3-step11000,think,compliance, Here's,2,delivers,-0.182
+trajectory,stage3-step11000,think,compliance, Here's,2,strongreject,-0.16
+trajectory,stage3-step11000,think,refusal, I cannot assist with this request.,7,delivers,-0.419
+trajectory,stage3-step11000,think,refusal, I cannot assist with this request.,7,strongreject,-0.396
+trajectory,stage3-step11000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.634
+trajectory,stage3-step11000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.541
+trajectory,stage3-step11000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.25
+trajectory,stage3-step11000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.184
+trajectory,stage3-step11921,think,compliance, Below is,2,delivers,-0.168
+trajectory,stage3-step11921,think,compliance, Below is,2,strongreject,-0.139
+trajectory,stage3-step11921,think,compliance, Here are,2,delivers,0.112
+trajectory,stage3-step11921,think,compliance, Here are,2,strongreject,0.155
+trajectory,stage3-step11921,think,compliance, Here's,2,delivers,-0.173
+trajectory,stage3-step11921,think,compliance, Here's,2,strongreject,-0.153
+trajectory,stage3-step11921,think,refusal, I cannot assist with this request.,7,delivers,-0.443
+trajectory,stage3-step11921,think,refusal, I cannot assist with this request.,7,strongreject,-0.43
+trajectory,stage3-step11921,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.641
+trajectory,stage3-step11921,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.571
+trajectory,stage3-step11921,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.24
+trajectory,stage3-step11921,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.161
+trajectory,stage3-step9000,think,compliance, Below is,2,delivers,-0.091
+trajectory,stage3-step9000,think,compliance, Below is,2,strongreject,-0.085
+trajectory,stage3-step9000,think,compliance, Here are,2,delivers,0.121
+trajectory,stage3-step9000,think,compliance, Here are,2,strongreject,0.186
+trajectory,stage3-step9000,think,compliance, Here's,2,delivers,-0.176
+trajectory,stage3-step9000,think,compliance, Here's,2,strongreject,-0.133
+trajectory,stage3-step9000,think,refusal, I cannot assist with this request.,7,delivers,-0.359
+trajectory,stage3-step9000,think,refusal, I cannot assist with this request.,7,strongreject,-0.385
+trajectory,stage3-step9000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.566
+trajectory,stage3-step9000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.519
+trajectory,stage3-step9000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.256
+trajectory,stage3-step9000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.227
+stage2_openers,main,think,compliance, Below is,2,delivers,-0.149
+stage2_openers,main,think,compliance, Below is,2,strongreject,-0.139
+stage2_openers,main,think,compliance, Here are,2,delivers,0.108
+stage2_openers,main,think,compliance, Here are,2,strongreject,0.161
+stage2_openers,main,think,compliance, Here's,2,delivers,-0.18
+stage2_openers,main,think,compliance, Here's,2,strongreject,-0.151
+stage2_openers,main,think,refusal, I cannot assist with this request.,7,delivers,-0.454
+stage2_openers,main,think,refusal, I cannot assist with this request.,7,strongreject,-0.43
+stage2_openers,main,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.619
+stage2_openers,main,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.528
+stage2_openers,main,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.244
+stage2_openers,main,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.177
+stage2_openers,main,human,compliance, Here is,2,delivers,-0.013
+stage2_openers,main,human,compliance, Here is,2,strongreject,0.038
+stage2_openers,main,human,compliance, Sure,1,delivers,0.013
+stage2_openers,main,human,compliance, Sure,1,strongreject,0.029
+stage2_openers,main,human,compliance, This is,2,delivers,-0.129
+stage2_openers,main,human,compliance, This is,2,strongreject,0.085
+stage2_openers,main,human,refusal, I can't assist with that request.,8,delivers,-0.567
+stage2_openers,main,human,refusal, I can't assist with that request.,8,strongreject,-0.527
+stage2_openers,main,human,refusal, I cannot provide that information,5,delivers,-0.56
+stage2_openers,main,human,refusal, I cannot provide that information,5,strongreject,-0.421
+stage2_openers,main,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.475
+stage2_openers,main,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.437
+stage2_openers,stage1-step656000,think,compliance, Below is,2,delivers,-0.012
+stage2_openers,stage1-step656000,think,compliance, Below is,2,strongreject,-0.051
+stage2_openers,stage1-step656000,think,compliance, Here are,2,delivers,0.032
+stage2_openers,stage1-step656000,think,compliance, Here are,2,strongreject,-0.191
+stage2_openers,stage1-step656000,think,compliance, Here's,2,delivers,-0.035
+stage2_openers,stage1-step656000,think,compliance, Here's,2,strongreject,-0.013
+stage2_openers,stage1-step656000,think,refusal, I cannot assist with this request.,7,delivers,-0.102
+stage2_openers,stage1-step656000,think,refusal, I cannot assist with this request.,7,strongreject,-0.286
+stage2_openers,stage1-step656000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.019
+stage2_openers,stage1-step656000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.18
+stage2_openers,stage1-step656000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.013
+stage2_openers,stage1-step656000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.121
+stage2_openers,stage1-step656000,human,compliance, Here is,2,delivers,0.011
+stage2_openers,stage1-step656000,human,compliance, Here is,2,strongreject,-0.045
+stage2_openers,stage1-step656000,human,compliance, Sure,1,delivers,0.133
+stage2_openers,stage1-step656000,human,compliance, Sure,1,strongreject,0.114
+stage2_openers,stage1-step656000,human,compliance, This is,2,delivers,0.183
+stage2_openers,stage1-step656000,human,compliance, This is,2,strongreject,0.155
+stage2_openers,stage1-step656000,human,refusal, I can't assist with that request.,8,delivers,-0.044
+stage2_openers,stage1-step656000,human,refusal, I can't assist with that request.,8,strongreject,-0.223
+stage2_openers,stage1-step656000,human,refusal, I cannot provide that information,5,delivers,-0.299
+stage2_openers,stage1-step656000,human,refusal, I cannot provide that information,5,strongreject,-0.442
+stage2_openers,stage1-step656000,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,0.036
+stage2_openers,stage1-step656000,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.125
+stage2_openers,stage2-ingredient1+2-step23842,think,compliance, Below is,2,delivers,-0.557
+stage2_openers,stage2-ingredient1+2-step23842,think,compliance, Below is,2,strongreject,-0.546
+stage2_openers,stage2-ingredient1+2-step23842,think,compliance, Here are,2,delivers,-0.132
+stage2_openers,stage2-ingredient1+2-step23842,think,compliance, Here are,2,strongreject,-0.241
+stage2_openers,stage2-ingredient1+2-step23842,think,compliance, Here's,2,delivers,-0.644
+stage2_openers,stage2-ingredient1+2-step23842,think,compliance, Here's,2,strongreject,-0.662
+stage2_openers,stage2-ingredient1+2-step23842,think,refusal, I cannot assist with this request.,7,delivers,-0.371
+stage2_openers,stage2-ingredient1+2-step23842,think,refusal, I cannot assist with this request.,7,strongreject,-0.503
+stage2_openers,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.518
+stage2_openers,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.558
+stage2_openers,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.122
+stage2_openers,stage2-ingredient1+2-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.126
+stage2_openers,stage2-ingredient1+2-step23842,human,compliance, Here is,2,delivers,-0.59
+stage2_openers,stage2-ingredient1+2-step23842,human,compliance, Here is,2,strongreject,-0.531
+stage2_openers,stage2-ingredient1+2-step23842,human,compliance, Sure,1,delivers,-0.414
+stage2_openers,stage2-ingredient1+2-step23842,human,compliance, Sure,1,strongreject,-0.368
+stage2_openers,stage2-ingredient1+2-step23842,human,compliance, This is,2,delivers,0.086
+stage2_openers,stage2-ingredient1+2-step23842,human,compliance, This is,2,strongreject,0.138
+stage2_openers,stage2-ingredient1+2-step23842,human,refusal, I can't assist with that request.,8,delivers,-0.477
+stage2_openers,stage2-ingredient1+2-step23842,human,refusal, I can't assist with that request.,8,strongreject,-0.589
+stage2_openers,stage2-ingredient1+2-step23842,human,refusal, I cannot provide that information,5,delivers,-0.45
+stage2_openers,stage2-ingredient1+2-step23842,human,refusal, I cannot provide that information,5,strongreject,-0.41
+stage2_openers,stage2-ingredient1+2-step23842,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.388
+stage2_openers,stage2-ingredient1+2-step23842,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.442
+stage2_openers,stage2-ingredient1-step1000,think,compliance, Below is,2,delivers,-0.085
+stage2_openers,stage2-ingredient1-step1000,think,compliance, Below is,2,strongreject,-0.117
+stage2_openers,stage2-ingredient1-step1000,think,compliance, Here are,2,delivers,0.353
+stage2_openers,stage2-ingredient1-step1000,think,compliance, Here are,2,strongreject,0.22
+stage2_openers,stage2-ingredient1-step1000,think,compliance, Here's,2,delivers,-0.084
+stage2_openers,stage2-ingredient1-step1000,think,compliance, Here's,2,strongreject,-0.114
+stage2_openers,stage2-ingredient1-step1000,think,refusal, I cannot assist with this request.,7,delivers,-0.329
+stage2_openers,stage2-ingredient1-step1000,think,refusal, I cannot assist with this request.,7,strongreject,-0.334
+stage2_openers,stage2-ingredient1-step1000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.321
+stage2_openers,stage2-ingredient1-step1000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.298
+stage2_openers,stage2-ingredient1-step1000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.283
+stage2_openers,stage2-ingredient1-step1000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.254
+stage2_openers,stage2-ingredient1-step1000,human,compliance, Here is,2,delivers,0.121
+stage2_openers,stage2-ingredient1-step1000,human,compliance, Here is,2,strongreject,0.12
+stage2_openers,stage2-ingredient1-step1000,human,compliance, Sure,1,delivers,0.079
+stage2_openers,stage2-ingredient1-step1000,human,compliance, Sure,1,strongreject,-0.007
+stage2_openers,stage2-ingredient1-step1000,human,compliance, This is,2,delivers,0.251
+stage2_openers,stage2-ingredient1-step1000,human,compliance, This is,2,strongreject,0.249
+stage2_openers,stage2-ingredient1-step1000,human,refusal, I can't assist with that request.,8,delivers,-0.405
+stage2_openers,stage2-ingredient1-step1000,human,refusal, I can't assist with that request.,8,strongreject,-0.45
+stage2_openers,stage2-ingredient1-step1000,human,refusal, I cannot provide that information,5,delivers,-0.368
+stage2_openers,stage2-ingredient1-step1000,human,refusal, I cannot provide that information,5,strongreject,-0.318
+stage2_openers,stage2-ingredient1-step1000,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.406
+stage2_openers,stage2-ingredient1-step1000,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.394
+stage2_openers,stage2-ingredient1-step12000,think,compliance, Below is,2,delivers,-0.134
+stage2_openers,stage2-ingredient1-step12000,think,compliance, Below is,2,strongreject,-0.24
+stage2_openers,stage2-ingredient1-step12000,think,compliance, Here are,2,delivers,0.241
+stage2_openers,stage2-ingredient1-step12000,think,compliance, Here are,2,strongreject,0.104
+stage2_openers,stage2-ingredient1-step12000,think,compliance, Here's,2,delivers,-0.363
+stage2_openers,stage2-ingredient1-step12000,think,compliance, Here's,2,strongreject,-0.334
+stage2_openers,stage2-ingredient1-step12000,think,refusal, I cannot assist with this request.,7,delivers,-0.357
+stage2_openers,stage2-ingredient1-step12000,think,refusal, I cannot assist with this request.,7,strongreject,-0.41
+stage2_openers,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.293
+stage2_openers,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.346
+stage2_openers,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,0.089
+stage2_openers,stage2-ingredient1-step12000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,0.041
+stage2_openers,stage2-ingredient1-step12000,human,compliance, Here is,2,delivers,-0.203
+stage2_openers,stage2-ingredient1-step12000,human,compliance, Here is,2,strongreject,-0.178
+stage2_openers,stage2-ingredient1-step12000,human,compliance, Sure,1,delivers,-0.208
+stage2_openers,stage2-ingredient1-step12000,human,compliance, Sure,1,strongreject,-0.21
+stage2_openers,stage2-ingredient1-step12000,human,compliance, This is,2,delivers,0.206
+stage2_openers,stage2-ingredient1-step12000,human,compliance, This is,2,strongreject,0.318
+stage2_openers,stage2-ingredient1-step12000,human,refusal, I can't assist with that request.,8,delivers,-0.352
+stage2_openers,stage2-ingredient1-step12000,human,refusal, I can't assist with that request.,8,strongreject,-0.448
+stage2_openers,stage2-ingredient1-step12000,human,refusal, I cannot provide that information,5,delivers,-0.364
+stage2_openers,stage2-ingredient1-step12000,human,refusal, I cannot provide that information,5,strongreject,-0.288
+stage2_openers,stage2-ingredient1-step12000,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.271
+stage2_openers,stage2-ingredient1-step12000,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.437
+stage2_openers,stage2-ingredient1-step2000,think,compliance, Below is,2,delivers,-0.144
+stage2_openers,stage2-ingredient1-step2000,think,compliance, Below is,2,strongreject,-0.184
+stage2_openers,stage2-ingredient1-step2000,think,compliance, Here are,2,delivers,0.236
+stage2_openers,stage2-ingredient1-step2000,think,compliance, Here are,2,strongreject,0.109
+stage2_openers,stage2-ingredient1-step2000,think,compliance, Here's,2,delivers,-0.283
+stage2_openers,stage2-ingredient1-step2000,think,compliance, Here's,2,strongreject,-0.294
+stage2_openers,stage2-ingredient1-step2000,think,refusal, I cannot assist with this request.,7,delivers,-0.376
+stage2_openers,stage2-ingredient1-step2000,think,refusal, I cannot assist with this request.,7,strongreject,-0.458
+stage2_openers,stage2-ingredient1-step2000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.335
+stage2_openers,stage2-ingredient1-step2000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.385
+stage2_openers,stage2-ingredient1-step2000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.294
+stage2_openers,stage2-ingredient1-step2000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.345
+stage2_openers,stage2-ingredient1-step2000,human,compliance, Here is,2,delivers,-0.216
+stage2_openers,stage2-ingredient1-step2000,human,compliance, Here is,2,strongreject,-0.185
+stage2_openers,stage2-ingredient1-step2000,human,compliance, Sure,1,delivers,-0.102
+stage2_openers,stage2-ingredient1-step2000,human,compliance, Sure,1,strongreject,-0.028
+stage2_openers,stage2-ingredient1-step2000,human,compliance, This is,2,delivers,0.184
+stage2_openers,stage2-ingredient1-step2000,human,compliance, This is,2,strongreject,0.282
+stage2_openers,stage2-ingredient1-step2000,human,refusal, I can't assist with that request.,8,delivers,-0.361
+stage2_openers,stage2-ingredient1-step2000,human,refusal, I can't assist with that request.,8,strongreject,-0.48
+stage2_openers,stage2-ingredient1-step2000,human,refusal, I cannot provide that information,5,delivers,-0.352
+stage2_openers,stage2-ingredient1-step2000,human,refusal, I cannot provide that information,5,strongreject,-0.382
+stage2_openers,stage2-ingredient1-step2000,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.485
+stage2_openers,stage2-ingredient1-step2000,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.508
+stage2_openers,stage2-ingredient1-step23842,think,compliance, Below is,2,delivers,-0.475
+stage2_openers,stage2-ingredient1-step23842,think,compliance, Below is,2,strongreject,-0.489
+stage2_openers,stage2-ingredient1-step23842,think,compliance, Here are,2,delivers,-0.139
+stage2_openers,stage2-ingredient1-step23842,think,compliance, Here are,2,strongreject,-0.185
+stage2_openers,stage2-ingredient1-step23842,think,compliance, Here's,2,delivers,-0.567
+stage2_openers,stage2-ingredient1-step23842,think,compliance, Here's,2,strongreject,-0.572
+stage2_openers,stage2-ingredient1-step23842,think,refusal, I cannot assist with this request.,7,delivers,-0.454
+stage2_openers,stage2-ingredient1-step23842,think,refusal, I cannot assist with this request.,7,strongreject,-0.553
+stage2_openers,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.575
+stage2_openers,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.629
+stage2_openers,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.283
+stage2_openers,stage2-ingredient1-step23842,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.287
+stage2_openers,stage2-ingredient1-step23842,human,compliance, Here is,2,delivers,-0.54
+stage2_openers,stage2-ingredient1-step23842,human,compliance, Here is,2,strongreject,-0.518
+stage2_openers,stage2-ingredient1-step23842,human,compliance, Sure,1,delivers,-0.482
+stage2_openers,stage2-ingredient1-step23842,human,compliance, Sure,1,strongreject,-0.412
+stage2_openers,stage2-ingredient1-step23842,human,compliance, This is,2,delivers,-0.066
+stage2_openers,stage2-ingredient1-step23842,human,compliance, This is,2,strongreject,0.005
+stage2_openers,stage2-ingredient1-step23842,human,refusal, I can't assist with that request.,8,delivers,-0.51
+stage2_openers,stage2-ingredient1-step23842,human,refusal, I can't assist with that request.,8,strongreject,-0.641
+stage2_openers,stage2-ingredient1-step23842,human,refusal, I cannot provide that information,5,delivers,-0.514
+stage2_openers,stage2-ingredient1-step23842,human,refusal, I cannot provide that information,5,strongreject,-0.476
+stage2_openers,stage2-ingredient1-step23842,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.572
+stage2_openers,stage2-ingredient1-step23842,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.651
+stage2_openers,stage2-ingredient1-step4000,think,compliance, Below is,2,delivers,-0.082
+stage2_openers,stage2-ingredient1-step4000,think,compliance, Below is,2,strongreject,-0.205
+stage2_openers,stage2-ingredient1-step4000,think,compliance, Here are,2,delivers,0.409
+stage2_openers,stage2-ingredient1-step4000,think,compliance, Here are,2,strongreject,0.263
+stage2_openers,stage2-ingredient1-step4000,think,compliance, Here's,2,delivers,-0.074
+stage2_openers,stage2-ingredient1-step4000,think,compliance, Here's,2,strongreject,-0.195
+stage2_openers,stage2-ingredient1-step4000,think,refusal, I cannot assist with this request.,7,delivers,-0.385
+stage2_openers,stage2-ingredient1-step4000,think,refusal, I cannot assist with this request.,7,strongreject,-0.306
+stage2_openers,stage2-ingredient1-step4000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.415
+stage2_openers,stage2-ingredient1-step4000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.329
+stage2_openers,stage2-ingredient1-step4000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.225
+stage2_openers,stage2-ingredient1-step4000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.126
+stage2_openers,stage2-ingredient1-step4000,human,compliance, Here is,2,delivers,0.055
+stage2_openers,stage2-ingredient1-step4000,human,compliance, Here is,2,strongreject,-0.016
+stage2_openers,stage2-ingredient1-step4000,human,compliance, Sure,1,delivers,0.103
+stage2_openers,stage2-ingredient1-step4000,human,compliance, Sure,1,strongreject,-0.086
+stage2_openers,stage2-ingredient1-step4000,human,compliance, This is,2,delivers,0.273
+stage2_openers,stage2-ingredient1-step4000,human,compliance, This is,2,strongreject,0.255
+stage2_openers,stage2-ingredient1-step4000,human,refusal, I can't assist with that request.,8,delivers,-0.445
+stage2_openers,stage2-ingredient1-step4000,human,refusal, I can't assist with that request.,8,strongreject,-0.383
+stage2_openers,stage2-ingredient1-step4000,human,refusal, I cannot provide that information,5,delivers,-0.355
+stage2_openers,stage2-ingredient1-step4000,human,refusal, I cannot provide that information,5,strongreject,-0.235
+stage2_openers,stage2-ingredient1-step4000,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.416
+stage2_openers,stage2-ingredient1-step4000,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.308
+stage2_openers,stage2-ingredient1-step8000,think,compliance, Below is,2,delivers,-0.177
+stage2_openers,stage2-ingredient1-step8000,think,compliance, Below is,2,strongreject,-0.21
+stage2_openers,stage2-ingredient1-step8000,think,compliance, Here are,2,delivers,0.414
+stage2_openers,stage2-ingredient1-step8000,think,compliance, Here are,2,strongreject,0.205
+stage2_openers,stage2-ingredient1-step8000,think,compliance, Here's,2,delivers,-0.144
+stage2_openers,stage2-ingredient1-step8000,think,compliance, Here's,2,strongreject,-0.157
+stage2_openers,stage2-ingredient1-step8000,think,refusal, I cannot assist with this request.,7,delivers,-0.401
+stage2_openers,stage2-ingredient1-step8000,think,refusal, I cannot assist with this request.,7,strongreject,-0.387
+stage2_openers,stage2-ingredient1-step8000,think,refusal," I'm sorry, but I can't assist with that request.",13,delivers,-0.432
+stage2_openers,stage2-ingredient1-step8000,think,refusal," I'm sorry, but I can't assist with that request.",13,strongreject,-0.462
+stage2_openers,stage2-ingredient1-step8000,think,refusal," I'm sorry, but I can't assist with this request.",13,delivers,-0.204
+stage2_openers,stage2-ingredient1-step8000,think,refusal," I'm sorry, but I can't assist with this request.",13,strongreject,-0.153
+stage2_openers,stage2-ingredient1-step8000,human,compliance, Here is,2,delivers,-0.07
+stage2_openers,stage2-ingredient1-step8000,human,compliance, Here is,2,strongreject,-0.08
+stage2_openers,stage2-ingredient1-step8000,human,compliance, Sure,1,delivers,-0.276
+stage2_openers,stage2-ingredient1-step8000,human,compliance, Sure,1,strongreject,-0.259
+stage2_openers,stage2-ingredient1-step8000,human,compliance, This is,2,delivers,0.2
+stage2_openers,stage2-ingredient1-step8000,human,compliance, This is,2,strongreject,0.243
+stage2_openers,stage2-ingredient1-step8000,human,refusal, I can't assist with that request.,8,delivers,-0.488
+stage2_openers,stage2-ingredient1-step8000,human,refusal, I can't assist with that request.,8,strongreject,-0.564
+stage2_openers,stage2-ingredient1-step8000,human,refusal, I cannot provide that information,5,delivers,-0.331
+stage2_openers,stage2-ingredient1-step8000,human,refusal, I cannot provide that information,5,strongreject,-0.289
+stage2_openers,stage2-ingredient1-step8000,human,refusal," I'm sorry, but I cannot answer that request.",11,delivers,-0.213
+stage2_openers,stage2-ingredient1-step8000,human,refusal," I'm sorry, but I cannot answer that request.",11,strongreject,-0.313
